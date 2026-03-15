@@ -39,10 +39,10 @@ header {
 }
 
 .grid-labs{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    justify-items: center;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 300px));
+    gap:1.5rem;
+    justify-content:center;
 }
 
 .lab-card:hover{
@@ -131,9 +131,12 @@ h2 {
     cursor: pointer;
 }
 
-.lab-card.activo:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 12px 35px rgba(0,212,170,0.25);
+.lab-card.activo:hover{
+    transform: translateY(-6px) scale(1.03);
+    box-shadow:
+        0 0 10px rgba(0,212,170,0.3),
+        0 0 30px rgba(0,212,170,0.2),
+        0 0 60px rgba(0,212,170,0.1);
 }
 
 .lab-card.pendiente {
@@ -262,3 +265,11 @@ a{
 a:hover{
     color:#00ffff;
 }
+
+
+[ Pendulo animado pequeño ]
+Pendulo Simple
+
+[ órbita mini animada ]
+Orbita Planetaria
+
