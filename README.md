@@ -1,3 +1,12 @@
+## License
+
+This project is released under the MIT License.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+
+See the LICENSE file for details.
+
+
 # 🔬 Laboratorios de Métodos Numéricos en Física 3D
 
 Plataforma educativa de simulaciones físicas interactivas desarrolladas con **p5.js** en entornos 3D WebGL. El proyecto combina **métodos numéricos computacionales** con el motor de física profesional **JoltPhysics** para ofrecer experiencias de aprendizaje variadas y de alto rendimiento.
