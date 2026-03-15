@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorios de Fisica 3D</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Laboratorios de Fisica 3D</h1>
+        <p>Simulaciones interactivas con p5.js, integradores numericos y JoltPhysics</p>
+    </header>
+
+    <main>
+        <section class="labs-disponibles">
+            <h2>Laboratorios Disponibles</h2>
+            <div class="grid-labs" id="labs-activos">
+                <a href="labs/Lab01/index.html" class="lab-card activo">
+                    <span class="lab-num">Lab 01</span>
+                    <h3>Pendulo Simple</h3>
+                    <p class="lab-tipo">p5.js + Integradores</p>
+                    <span class="estado">Activo</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="labs-desarrollo">
+            <h2>En Desarrollo</h2>
+            <div class="grid-labs" id="labs-pendientes">
+            </div>
+        </section>
+
+        <section class="info">
+            <h2>Informacion</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Metodos Numericos</h3>
+                    <ul>
+                        <li>Euler</li>
+                        <li>Verlet</li>
+                        <li>Runge-Kutta 4 (RK4)</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Motores de Fisica</h3>
+                    <ul>
+                        <li>Integradores propios (p5.js)</li>
+                        <li>JoltPhysics (WebAssembly)</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Temas Cubiertos</h3>
+                    <ul>
+                        <li>Mecanica Newtoniana</li>
+                        <li>Oscilaciones y Caos</li>
+                        <li>Colisiones y Torque</li>
+                        <li>Gravitacion</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Proyecto educativo - GitHub Pages</p>
+    </footer>
+
+    <script>
+        const labsStatus = {
+            Lab02: false,
+            Lab03: false,
+            Lab04: false,
+            Lab05: false,
+            Lab06: false,
+            Lab07: false,
+            Lab08: false,
+            Lab09: false,
+            Lab10: false,
+            Lab11: false,
+            Lab12: false,
+            Lab13: false,
+            Lab14: false,
+            Lab15: false,
+            Lab16: false,
+            Lab17: false,
+            Lab18: false,
+            Lab19: false,
+            Lab20: false,
+            Lab21: false,
+            Lab22: false,
+            Lab23: false,
+            Lab24: false,
+            Lab25: false,
+            Lab26: false,
+            Lab27: false,
+            Lab28: false,
+            Lab29: false,
+            Lab30: false,
+            Lab31: false,
+            Lab32: false
+        };
+
+        const labsNames = {
+            Lab02: "Pendulo Doble",
+            Lab03: "Colisiones Elasticas",
+            Lab04: "Colisiones Inelasticas",
+            Lab05: "Proyectil con Aire",
+            Lab06: "Orbita Planetaria",
+            Lab07: "Sistema Binario",
+            Lab08: "Caos Determinista",
+            Lab09: "Resorte Acoplado",
+            Lab10: "Pendulo Esferico",
+            Lab11: "Trompo Giratorio",
+            Lab12: "Giroscopio",
+            Lab13: "Solidos Rigidos",
+            Lab14: "Torque y Equilibrio",
+            Lab15: "Rodadura sin Deslizar",
+            Lab16: "Pendulo Fisico",
+            Lab17: "Tension en Cuerdas",
+            Lab18: "Pendulo de Foucault",
+            Lab19: "Maquina de Atwood",
+            Lab20: "Cohete Multietapa",
+            Lab21: "Campo Electrico",
+            Lab22: "Particula Cargada",
+            Lab23: "Efecto Hall",
+            Lab24: "Ondas Estacionarias",
+            Lab25: "Interferencia",
+            Lab26: "Pendulo Invertido",
+            Lab27: "Doble Pendulo Caotico",
+            Lab28: "Billar Cuantico",
+            Lab29: "Gas Ideal 2D",
+            Lab30: "Transicion de Fase",
+            Lab31: "Atraccion Gravitacional N-Cuerpos",
+            Lab32: "Simulacion Completa"
+        };
+
+        const labsTypes = {
+            Lab02: "p5.js + Integradores",
+            Lab03: "p5.js + JoltPhysics",
+            Lab04: "p5.js + JoltPhysics",
+            Lab05: "p5.js + Integradores",
+            Lab06: "p5.js + Integradores",
+            Lab07: "p5.js + Integradores",
+            Lab08: "p5.js + Integradores",
+            Lab09: "p5.js + Integradores",
+            Lab10: "p5.js + Integradores",
+            Lab11: "p5.js + JoltPhysics",
+            Lab12: "p5.js + JoltPhysics",
+            Lab13: "p5.js + JoltPhysics",
+            Lab14: "p5.js + JoltPhysics",
+            Lab15: "p5.js + JoltPhysics",
+            Lab16: "p5.js + Integradores",
+            Lab17: "p5.js + Integradores",
+            Lab18: "p5.js + Integradores",
+            Lab19: "p5.js + Integradores",
+            Lab20: "p5.js + Integradores",
+            Lab21: "p5.js + Integradores",
+            Lab22: "p5.js + Integradores",
+            Lab23: "p5.js + Integradores",
+            Lab24: "p5.js + Integradores",
+            Lab25: "p5.js + Integradores",
+            Lab26: "p5.js + Integradores",
+            Lab27: "p5.js + Integradores",
+            Lab28: "p5.js + Integradores",
+            Lab29: "p5.js + JoltPhysics",
+            Lab30: "p5.js + JoltPhysics",
+            Lab31: "p5.js + JoltPhysics",
+            Lab32: "p5.js + JoltPhysics"
+        };
+
+        const activosContainer = document.getElementById('labs-activos');
+        const pendientesContainer = document.getElementById('labs-pendientes');
+
+        Object.keys(labsStatus).forEach(lab => {
+            const card = document.createElement('div');
+            card.className = labsStatus[lab] ? 'lab-card activo' : 'lab-card pendiente';
+            
+            if (labsStatus[lab]) {
+                card.outerHTML = `
+                    <a href="labs/${lab}/index.html" class="lab-card activo">
+                        <span class="lab-num">${lab.replace('Lab', 'Lab ')}</span>
+                        <h3>${labsNames[lab]}</h3>
+                        <p class="lab-tipo">${labsTypes[lab]}</p>
+                        <span class="estado">Activo</span>
+                    </a>
+                `;
+            } else {
+                card.innerHTML = `
+                    <span class="lab-num">${lab.replace('Lab', 'Lab ')}</span>
+                    <h3>${labsNames[lab]}</h3>
+                    <p class="lab-tipo">${labsTypes[lab]}</p>
+                    <span class="estado">En desarrollo</span>
+                `;
+                pendientesContainer.appendChild(card);
+            }
+        });
+    </script>
+</body>
+</html>
