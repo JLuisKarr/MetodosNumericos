@@ -1,45 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratorios de Física 3D</title>
+    <title>Laboratorios de Fisica 3D</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <h1>?? Laboratorios de Física 3D</h1>
-        <p>Simulaciones interactivas con p5.js, integradores numéricos y JoltPhysics</p>
+        <h1>Laboratorios de Fisica 3D</h1>
+        <p>Simulaciones interactivas con p5.js, integradores numericos y JoltPhysics</p>
     </header>
 
     <main>
         <section class="labs-disponibles">
-            <h2>?? Laboratorios Disponibles</h2>
+            <h2>Laboratorios Disponibles</h2>
             <div class="grid-labs" id="labs-activos">
-                <!-- Lab01: Siempre visible como ejemplo/plantilla -->
                 <a href="labs/Lab01/index.html" class="lab-card activo">
                     <span class="lab-num">Lab 01</span>
-                    <h3>Péndulo Simple</h3>
+                    <h3>Pendulo Simple</h3>
                     <p class="lab-tipo">p5.js + Integradores</p>
-                    <span class="estado">? Activo</span>
+                    <span class="estado">Activo</span>
                 </a>
             </div>
         </section>
 
         <section class="labs-desarrollo">
-            <h2>?? En Desarrollo</h2>
+            <h2>En Desarrollo</h2>
             <div class="grid-labs" id="labs-pendientes">
-                <!-- Labs 02-32: Ocultos hasta liberarse -->
-                <!-- Se generan con JavaScript para no saturar el HTML -->
             </div>
         </section>
 
         <section class="info">
-            <h2>?? Información</h2>
+            <h2>Informacion</h2>
             <div class="info-grid">
                 <div class="info-card">
-                    <h3>Métodos Numéricos</h3>
+                    <h3>Metodos Numericos</h3>
                     <ul>
                         <li>Euler</li>
                         <li>Verlet</li>
@@ -47,7 +43,7 @@
                     </ul>
                 </div>
                 <div class="info-card">
-                    <h3>Motores de Física</h3>
+                    <h3>Motores de Fisica</h3>
                     <ul>
                         <li>Integradores propios (p5.js)</li>
                         <li>JoltPhysics (WebAssembly)</li>
@@ -56,10 +52,10 @@
                 <div class="info-card">
                     <h3>Temas Cubiertos</h3>
                     <ul>
-                        <li>Mecánica Newtoniana</li>
+                        <li>Mecanica Newtoniana</li>
                         <li>Oscilaciones y Caos</li>
                         <li>Colisiones y Torque</li>
-                        <li>Gravitación</li>
+                        <li>Gravitacion</li>
                     </ul>
                 </div>
             </div>
@@ -71,7 +67,6 @@
     </footer>
 
     <script>
-        // Configuración: cambiar a true para liberar labs
         const labsStatus = {
             Lab02: false,
             Lab03: false,
@@ -106,42 +101,40 @@
             Lab32: false
         };
 
-        // Nombres temporales de los labs (editar según se desarrollen)
         const labsNames = {
-            Lab02: "Péndulo Doble",
-            Lab03: "Colisiones Elásticas",
-            Lab04: "Colisiones Inelásticas",
+            Lab02: "Pendulo Doble",
+            Lab03: "Colisiones Elasticas",
+            Lab04: "Colisiones Inelasticas",
             Lab05: "Proyectil con Aire",
-            Lab06: "Órbita Planetaria",
+            Lab06: "Orbita Planetaria",
             Lab07: "Sistema Binario",
             Lab08: "Caos Determinista",
             Lab09: "Resorte Acoplado",
-            Lab10: "Péndulo Esférico",
-            Lab11: "Topa Giratorio",
+            Lab10: "Pendulo Esferico",
+            Lab11: "Trompo Giratorio",
             Lab12: "Giroscopio",
-            Lab13: "Sólidos Rígidos",
+            Lab13: "Solidos Rigidos",
             Lab14: "Torque y Equilibrio",
             Lab15: "Rodadura sin Deslizar",
-            Lab16: "Péndulo Físico",
-            Lab17: "Tensión en Cuerdas",
-            Lab18: "Péndulo de Foucault",
-            Lab19: "Máquina de Atwood",
+            Lab16: "Pendulo Fisico",
+            Lab17: "Tension en Cuerdas",
+            Lab18: "Pendulo de Foucault",
+            Lab19: "Maquina de Atwood",
             Lab20: "Cohete Multietapa",
-            Lab21: "Campo Eléctrico",
-            Lab22: "Partícula Cargada",
+            Lab21: "Campo Electrico",
+            Lab22: "Particula Cargada",
             Lab23: "Efecto Hall",
             Lab24: "Ondas Estacionarias",
             Lab25: "Interferencia",
-            Lab26: "Péndulo Invertido",
-            Lab27: "Doble Péndulo Caótico",
-            Lab28: "Billar Cuántico",
+            Lab26: "Pendulo Invertido",
+            Lab27: "Doble Pendulo Caotico",
+            Lab28: "Billar Cuantico",
             Lab29: "Gas Ideal 2D",
-            Lab30: "Transición de Fase",
-            Lab31: "Atracción Gravitacional N-Cuerpos",
-            Lab32: "Simulación Completa"
+            Lab30: "Transicion de Fase",
+            Lab31: "Atraccion Gravitacional N-Cuerpos",
+            Lab32: "Simulacion Completa"
         };
 
-        // Tipos de labs (editar según corresponda)
         const labsTypes = {
             Lab02: "p5.js + Integradores",
             Lab03: "p5.js + JoltPhysics",
@@ -176,7 +169,6 @@
             Lab32: "p5.js + JoltPhysics"
         };
 
-        // Generar HTML de labs
         const activosContainer = document.getElementById('labs-activos');
         const pendientesContainer = document.getElementById('labs-pendientes');
 
@@ -185,22 +177,20 @@
             card.className = labsStatus[lab] ? 'lab-card activo' : 'lab-card pendiente';
             
             if (labsStatus[lab]) {
-                // Lab activo: es un enlace clickeable
                 card.outerHTML = `
                     <a href="labs/${lab}/index.html" class="lab-card activo">
                         <span class="lab-num">${lab.replace('Lab', 'Lab ')}</span>
                         <h3>${labsNames[lab]}</h3>
                         <p class="lab-tipo">${labsTypes[lab]}</p>
-                        <span class="estado">? Activo</span>
+                        <span class="estado">Activo</span>
                     </a>
                 `;
             } else {
-                // Lab pendiente: no es clickeable
                 card.innerHTML = `
                     <span class="lab-num">${lab.replace('Lab', 'Lab ')}</span>
                     <h3>${labsNames[lab]}</h3>
                     <p class="lab-tipo">${labsTypes[lab]}</p>
-                    <span class="estado">? En desarrollo</span>
+                    <span class="estado">En desarrollo</span>
                 `;
                 pendientesContainer.appendChild(card);
             }
