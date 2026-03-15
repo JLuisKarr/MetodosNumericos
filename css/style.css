@@ -38,6 +38,19 @@ header {
     border-bottom: 2px solid var(--color-primary);
 }
 
+.grid-labs{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+}
+
+.lab-card:hover{
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(0,212,170,0.25);
+}
+
+
 header img{
     display:block;
     margin:0 auto 20px auto;
