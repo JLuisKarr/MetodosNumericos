@@ -245,3 +245,11 @@ footer {
 .lab-card.pendiente {
     animation: pulse 3s infinite;
 }
+a{
+    color: var(--color-primary);
+    text-decoration:none;
+}
+
+a:hover{
+    color:#00ffff;
+}
